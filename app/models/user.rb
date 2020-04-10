@@ -1,8 +1,8 @@
 class User < ApplicationRecord
-  has_many :usertests
-  has_many :tests, through: :usertests
+  has_many :user_tests
+  has_many :tests, through: :user_tests
 
   def tests_list_by_level (level)
-    Test.where(level: level, user_id: self.id)
+
   end
 end

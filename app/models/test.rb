@@ -3,14 +3,8 @@ class Test < ApplicationRecord
   has_many :user_tests
   has_many :users, through: :user_tests
 
-  def self.tests_by_category(name_of_category)
-   j1 = Test.joins("INNER JOIN categories
-                    ON tests.categories_id = categories.id
-                    AND categories.title = 'Programming'").pluck(:title)
-  end
+  def self.sorted_tests_list_by_category_name(name_of_category)
+   Test.order(title: :asc).eager_load(:category).where(categories: { title: name_of_category }).pluck(:title)
 
-  # Создайте метод класса в модели Test, который возвращает
-  # отсортированный по убыванию массив названий всех Тестов у которых
-  # Категория называется определённым образом (название категории передается
-  # в метод в качестве аргумента).
+  end
 end

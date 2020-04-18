@@ -11,10 +11,10 @@
 
   cat1 = Category.create(title: 'Programming')
 
-  test1 = Test.create(title: 'Ruby', level: 2, category: cat1, users: [user1])
-  test2 = Test.create(title: 'HTML', level: 1, category: cat1, users: [user1])
-  test3 = Test.create(title: 'Java', level: 3, category: cat1, users: [user1])
-  test4 = Test.create(title: 'R', level: 2, category: cat1, users: [user2])
+  test1 = Test.create(title: 'Ruby', level: 2, category: cat1, users: [user1], author_id: user1)
+  test2 = Test.create(title: 'HTML', level: 1, category: cat1, users: [user1], author_id: user2)
+  test3 = Test.create(title: 'Java', level: 3, category: cat1, users: [user1], author_id: user1)
+  test4 = Test.create(title: 'R', level: 2, category: cat1, users: [user2], author_id: user1)
 
   usertest1 = UserTest.create(user_id: user1.id, test_id: test1.id)
   usertest2 = UserTest.create(user_id: user1.id, test_id: test2.id)

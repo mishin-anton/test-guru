@@ -11,8 +11,6 @@ class TestsController < ApplicationController
   end
 
   def show
-    title = Test.first.title
-
     render inline: '<%= @test.title %>'
   end
 

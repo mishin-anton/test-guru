@@ -8,17 +8,18 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    body = Question.first.body
-
-    render inline: '<%= @question.body %>'
+    render inline: '<%= @question.id %>'
   end
 
   def create
     test = Test.find(params[:test_id])
     question = test.questions.create(question_params)
 
-    question.save!
-    render plain: question.inspect
+    if question.save!
+      render plain: question.inspect
+    else
+      render plain: "500", status: 500
+    end
   end
 
   def destroy
@@ -33,7 +34,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:id, :body, :test_id)
+    params.require(:question).permit(:id, :body)
   end
 
   def rescue_with_question_not_found

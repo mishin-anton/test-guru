@@ -15,10 +15,10 @@ class QuestionsController < ApplicationController
     test = Test.find(params[:test_id])
     question = test.questions.create(question_params)
 
-    if question.save!
+    if question.save
       render plain: question.inspect
     else
-      render plain: "500", status: 500
+      render plain: "Error"
     end
   end
 

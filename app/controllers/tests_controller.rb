@@ -1,6 +1,5 @@
 class TestsController < ApplicationController
-
-  before_action :find_test, only: %i[show]
+  before_action :find_test, only: [:show, :edit, :update, :destroy]
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -10,16 +9,8 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-    @test = Test.find(params[:id])
-  end
-
   def new
     @test = Test.new
-  end
-
-  def edit
-    @test = Test.find(params[:id])
   end
 
   def create
@@ -33,8 +24,6 @@ class TestsController < ApplicationController
   end
 
   def update
-    @test = Test.find(params[:id])
-
     if @test.update(test_params)
       redirect_to @test
     else
@@ -43,8 +32,6 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    @test = Test.find(params[:id])
-
     @test.destroy
     redirect_to tests_path
   end

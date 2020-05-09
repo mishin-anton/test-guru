@@ -7,13 +7,6 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr>
-      <% @questions.each do |question| %>
-      <td><%= question.id %></th>
-      <td><%= question.body %></th>
-      <td><%= link_to "Delete", "/questions/#{question.id}", :method => "delete" %></td>
-    </tr>
-    <% end %>
-  </tbody>
+  <%= render @questions %>
+
 </table>

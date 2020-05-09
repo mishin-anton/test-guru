@@ -1,17 +1,19 @@
+<h1>Tricky tests</h1>
+
+<p>
+  <%= link_to 'New test', new_test_path %>
+</p>
+
 <table>
   <thead>
     <tr>
-      <th>id</th>
       <th>Title</th>
+      <th>questions</th>
+      <th>Level</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
-  <tbody>
-    <tr>
-      <% @tests.each do |test| %>
-      <td><%= test.id %></th>
-      <td><%= test.title %></th>
-    </tr>
-    <% end %>
-  </tbody>
+  <%= render @tests %>
+
 </table>

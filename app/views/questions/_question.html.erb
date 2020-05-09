@@ -1,0 +1,7 @@
+<tbody align="left">
+  <tr>
+    <td><%= question.body %></td>
+    <td><%= link_to 'edit', edit_question_path(question) %></td>
+    <td><%= link_to 'delete', question_path(question), method: :delete, data: { confirm: 'Are you shure?' } %></td>
+  </tr>
+</tbody>

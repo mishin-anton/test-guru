@@ -7,7 +7,7 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   def validate_answer_limit
-    if question.answer.count > 4
+    if question.answers.count > 4
       errors.add(:base) << "Limit for answers is 4"
     end
   end

@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
+
   root to: 'tests#index'
 
-  resources :tests, shallow: true do
-    resources :questions
+  resources :tests do
+    resources :questions, shallow: true, except: :index do
+      resources :answers, shallow: true, ecept: :index
+    end
+
+    member do
+      post :start
+    end
   end
 
-  get 'tests/:category/:title', to: 'tests#search'
+  resources :user_tests, only: %i[show update] do
+    member do
+      get :result
+    end
+  end
+
 end

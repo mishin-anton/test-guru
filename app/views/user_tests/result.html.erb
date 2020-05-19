@@ -1,7 +1,7 @@
 <h1>The <%= @user_test.test.title  %> test was complited!</h1>
 
 <h2>correct answers</h2>
-<% if @user_test.calculate_results >= 85 %>
+<% if @user_test.success? %>
   <h2 class="answers-success">
 <% else %>
   <h2 class="answers-notsuccess">

@@ -1,0 +1,31 @@
+.nav {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  border-botom: 3px solid rgb(204, 204, 204);
+  overflow: hidden;
+}
+
+ul.nav {
+  border: 1px dashed #999;
+  padding: 7px 5px;
+  text-transform: uppercase;
+  background-color: #E7E7E7;
+}
+
+.nav li {
+  float: left;
+}
+
+.nav a {
+  width: 10em;
+  display: block;
+  margin-right: 5px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.nav a:link { color: #0D47A1; }
+.nav a:visited { color: #0D47A1; }
+.nav a:hover { color: #F33; }
+.nav a:active { color: #B2F511; }

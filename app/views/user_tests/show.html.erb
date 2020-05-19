@@ -1,7 +1,7 @@
 <h1>Passing the <%= @user_test.test.title %> test </h1>
 
 <p>
-  Current question №: <%= @user_test.test.questions.ids.index(@user_test.current_question.id)+1%><br>
+  Current question №: <%= @user_test.current_question_number %><br>
   Total questions: <%= @user_test.test.questions.count%>
 </p>
 

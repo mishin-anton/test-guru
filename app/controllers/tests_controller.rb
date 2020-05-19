@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
-  before_action :find_test, only: [:show, :edit, :update, :destroy]
+  before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
+  before_action :set_user, only: :start
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -42,10 +43,19 @@ class TestsController < ApplicationController
     render plain: result.join("\n")
   end
 
+  def start
+    @user.tests.push(@test)
+    redirect_to @user.user_test(@test)
+  end
+
   private
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def set_user
+    @user = User.first
   end
 
   def send_log_message

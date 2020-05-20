@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_back_or tests_path
+      redirect_to cookies[:forwarding_url] || tests_path
     else
       flash.now[:alert] = 'Are you a Guru? Verify your Email and Password please'
       render :new
@@ -19,13 +19,4 @@ class SessionsController < ApplicationController
 
     redirect_to tests_path
   end
-
-  private
-
-   def redirect_back_or(default)
-    redirect_to(cookies[:forwarding_url] || default)
-    cookies.delete(:forwarding_url)
-  end
-
-
 end

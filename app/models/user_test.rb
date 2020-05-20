@@ -1,5 +1,7 @@
 class UserTest < ApplicationRecord
 
+  SUCCESS_ANSWER_PERCENT = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
@@ -19,11 +21,19 @@ class UserTest < ApplicationRecord
     save!
   end
 
+  def success?
+    calculate_results >= SUCCESS_ANSWER_PERCENT
+  end
+
   def calculate_results
     total_questions = self.test.questions.count
     correct_answers = self.correct_questions
 
     @percent_success = (correct_answers.to_f / total_questions.to_f * 100).round
+  end
+
+  def current_question_number
+    self.test.questions.ids.index(self.current_question.id)+1
   end
 
   private

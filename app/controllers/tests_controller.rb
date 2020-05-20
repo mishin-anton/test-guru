@@ -1,6 +1,8 @@
 class TestsController < ApplicationController
+
   before_action :find_test, only: [:show, :edit, :update, :destroy, :start]
   before_action :set_user, only: :start
+  before_action :authenticate_user!, only: [:new, :show, :start, :edit, :update, :destroy]
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -76,4 +78,5 @@ class TestsController < ApplicationController
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)
   end
+
 end

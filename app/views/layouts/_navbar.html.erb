@@ -3,8 +3,9 @@
   <li><%= link_to 'Registration', signup_path %></li>
   <li><%= link_to 'Log in', login_path %></li>
 
-  <% if logged_in? %>
-    <li>Welcome, <strong><%= current_user.email %></strong> Guru<br>
-        <%= link_to 'Log out', logout_path, :method => :destroy %></li>
+  <% if user_signed_in? %>
+    <li>Welcome, <strong><%= current_user.email %></strong> Guru | <br>
+      <%= link_to 'Logout', destroy_user_session_path, :method => :destroy %>
+    </li>
   <% end %>
 </ul>

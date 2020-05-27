@@ -9,7 +9,7 @@ class UserTest < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
-  def complited?
+  def completed?
     current_question.nil?
   end
 

@@ -22,4 +22,8 @@ class User < ApplicationRecord
     self.tests.where(level: level)
   end
 
+  def admin?
+    self.type == 'Admin'
+  end
+
 end

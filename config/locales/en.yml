@@ -1,33 +1,104 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+      question:
+        create: "Create question"
+      answer:
+        update: "Save"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Question"
+      answer:
+        body: "Body"
+        correct: "Correct"
+
+    select:
+      prompt: "Please select"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected%"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      title: "Заголовок"
+      level: "Уровень"
+      questions: "Кол-во вопросов"
+    test:
+      start: "Start"
+
+  user_tests:
+    result:
+      header: "The %{title} was competed!"
+
+  admin:
+    tests:
+      new:
+        header: "Создать новый тест"
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
+        new_test: "New test"
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+      show:
+        title: "Title"
+        level: "Level"
+        header: "Questions"
+        new_question: "New question"
+        edit: "Edit"
+        back: "Back"
+      edit:
+        header: "Edit %{title} test"
+      test:
+        show: "Show"
+        edit: "Edit"
+        delete: "delete"
+    questions:
+      new:
+        header: "Create question"
+        back: "Back"
+      show:
+        header: "%{title} question"
+        answers: "Answers"
+        new_answer: "New answer"
+        edit: "Edit"
+        back: "Back"
+      edit:
+        header: "Edit %{title} question"
+      question:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+    answers:
+      show:
+        header: "Question"
+        answer: "Answer:"
+        correct: "Correct"
+        back: "Back"
+      edit:
+        header: "Редактирование ответа"
+        back: "Назад"
+      answer:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+
+  tests_mailer:
+    competed_test:
+      subject: 'You just complited the TestGuru test!'

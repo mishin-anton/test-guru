@@ -1,28 +1,32 @@
 Rails.application.routes.draw do
 
-  root to: 'tests#index'
+  scope "(:lang)", lang: /en|ru/ do
 
-  devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
+    root to: 'tests#index'
 
-  resources :tests, only: :index do
+    devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
-    member do
-      post :start
-    end
-  end
+    resources :tests, only: :index do
 
-  resources :user_tests, only: %i[show update] do
-    member do
-      get :result
-    end
-  end
-
-  namespace :admin do
-    resources :tests do
-      resources :questions, shallow: true, except: :index do
-        resources :answers, shallow: true, except: :index
+      member do
+        post :start
       end
     end
+
+    resources :user_tests, only: %i[show update] do
+      member do
+        get :result
+      end
+    end
+
+    namespace :admin do
+      resources :tests do
+        resources :questions, shallow: true, except: :index do
+          resources :answers, shallow: true, except: :index
+        end
+      end
+    end
+
   end
 
 end

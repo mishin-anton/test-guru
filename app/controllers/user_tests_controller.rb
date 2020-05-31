@@ -14,6 +14,10 @@ class UserTestsController < ApplicationController
     end
   end
 
+  def result
+
+  end
+
   def destroy
     set_current_question_number
   end

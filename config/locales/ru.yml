@@ -1,0 +1,107 @@
+ru:
+  hello: "Привет мир"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+      question:
+        create: "Создать вопрос"
+      answer:
+        update: "Сохранить ответ"
+
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Вопрос"
+      answer:
+        body: "Ответ"
+        correct: "Правильный ответ"
+
+    select:
+      prompt: "Сделайте выбор"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+
+  tests:
+    index:
+      header: "Доступные тесты"
+      title: "Заголовок"
+      level: "Уровень"
+      questions: "Кол-во вопросов"
+    test:
+      start: "Пройти тест"
+
+  user_tests:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
+  admin:
+    tests:
+      new:
+        header: "Создать новый тест"
+      create:
+        success: "Тест успешно создан"
+      index:
+        header: "Доступные тесты"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Кол-во вопросов"
+        actions: "Действия"
+      show:
+        title: "Заголовок"
+        level: "Уровень"
+        header: "Вопросы"
+        new_question: "Новый вопрос"
+        edit: "Редактировать вопрос"
+        back: "Назад"
+      edit:
+        header: "Редактировать %{title} тест"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+    questions:
+      new:
+        header: "Создать вопрос"
+        back: "Назад"
+      show:
+        header: "%{title} вопрос"
+        answers: "Ответы"
+        new_answer: "Новый ответ"
+        edit: "Редактировать вопрос"
+        back: "Назад"
+      edit:
+        header: "Редактировать %{title} вопрос"
+      question:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+    answers:
+      show:
+        header: "Вопрос"
+        answer: "Ответ:"
+        correct: "Правильный:"
+        back: "Назад"
+      edit:
+        header: "Редактирование ответа"
+        back: "Назад"
+      answer:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+
+  tests_mailer:
+    competed_test:
+      subject: 'Вы только что завершили TestGuru!'

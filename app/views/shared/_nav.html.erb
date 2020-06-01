@@ -6,7 +6,7 @@
       Welcome, <b><%= current_user.email %></b> Guru |
       <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
       <br>
-      <% if current_user.is_a?(Admin)%>
+      <% if current_user.admin?%>
         <%= link_to 'Admin panel', admin_tests_path %>
       <% end %>
     <% else%>

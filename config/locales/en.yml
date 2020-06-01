@@ -33,13 +33,16 @@ en:
   tests:
     index:
       header: "Tricky Tests"
-      title: "Заголовок"
-      level: "Уровень"
-      questions: "Кол-во вопросов"
+      title: "Title"
+      level: "Level"
+      questions: "Questions"
+      action: "Action"
     test:
       start: "Start"
 
   user_tests:
+    show:
+      header: "Passing the %{title} test"
     result:
       header: "The %{title} was competed!"
 

@@ -45,6 +45,9 @@ en:
       header: "Passing the %{title} test"
     result:
       header: "The %{title} was competed!"
+    gist:
+      success: "<a href='%{gist_link}'>Gist</a> was successfully created"
+      failure: "An error occurred while saving gist"
 
   admin:
     tests:

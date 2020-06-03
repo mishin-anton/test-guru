@@ -1,10 +1,5 @@
-<!--
-<% flash.each do |key, message| %>
-  <%= content_tag :p, message, class: "flash #{key}" %>
-<% end %> -->
-
 <% flash.each do |key, message| %>
   <div class="alert <%= bootstrap_class_for(key) %> ">
-    <%= message %>
+    <%= message.html_safe %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 class UserTestsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_user_test, only: %i[show update result]
+  before_action :set_user_test, only: %i[show update result gist]
 
   def update
     @user_test.accept!(params[:answer_ids])
@@ -16,6 +16,27 @@ class UserTestsController < ApplicationController
 
   def result
 
+  end
+
+  def gist
+    result = GistQuestionService.new(@user_test.current_question).call
+    link_to_gist = result.html_url
+
+    flash_options = if result.html_url.present?
+      { notice: t('.success', gist_link: link_to_gist) }
+    else
+      { alert: t('.failure') }
+    end
+
+    gist_data = {
+      question: @user_test.current_question,
+      user: current_user,
+      gist_message: result.id
+    }
+
+    Gist.create gist_data
+
+    redirect_to @user_test, flash_options
   end
 
   def destroy

@@ -1,7 +1,7 @@
 module GistsHelper
 
   def gist_url(data)
-    link_to data, "https://gist.github.com/#{data}"
+    link_to data, "#{data}", target: :blank
   end
 
 end

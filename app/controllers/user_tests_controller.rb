@@ -19,22 +19,16 @@ class UserTestsController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@user_test.current_question).call
-    link_to_gist = result.html_url
+    service = GistQuestionService.new(@user_test.current_question)
+    response = service.call
+    gist_url = response.html_url
 
-    flash_options = if result.html_url.present?
-      { notice: t('.success', gist_link: link_to_gist) }
+    flash_options = if service.success?
+      create_sucess_gist(gist_url)
+      { notice: t('.success', gist_link: gist_url) }
     else
       { alert: t('.failure') }
     end
-
-    gist_data = {
-      question: @user_test.current_question,
-      user: current_user,
-      gist_message: result.id
-    }
-
-    Gist.create gist_data
 
     redirect_to @user_test, flash_options
   end
@@ -47,6 +41,10 @@ class UserTestsController < ApplicationController
 
   def set_user_test
     @user_test = UserTest.find(params[:id])
+  end
+
+  def create_sucess_gist(url)
+    current_user.gists.create(question: @user_test.current_question, gist_message: url)
   end
 
 end

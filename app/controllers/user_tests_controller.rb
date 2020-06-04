@@ -21,9 +21,9 @@ class UserTestsController < ApplicationController
   def gist
     service = GistQuestionService.new(@user_test.current_question)
     response = service.call
-    gist_url = response.html_url
 
     flash_options = if service.success?
+      gist_url = response.html_url
       create_sucess_gist(gist_url)
       { notice: t('.success', gist_link: gist_url) }
     else

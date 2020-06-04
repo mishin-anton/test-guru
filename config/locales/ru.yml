@@ -48,6 +48,9 @@ ru:
       header: "Прохождение теста %{title}"
     result:
       header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "<a href='%{gist_link}'>Gist</a> успешно сохранен"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     tests:

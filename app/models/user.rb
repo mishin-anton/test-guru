@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :user_tests
   has_many :tests, through: :user_tests
+  has_many :gists
   has_many :own_tests, class_name: 'Test', foreign_key: :user_id
 
   validates :email, presence: true, length: { maximum: 255 },

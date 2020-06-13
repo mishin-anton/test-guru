@@ -3,7 +3,11 @@
 <table class="table table-sm table-hover">
   <thead class="thead-dark">
     <tr>
-      <th><%= t('.title') %></th>
+      <th class="pointer sort-by-title">
+        <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-sucess hide' %>
+      </th>
       <th><%= t('.level') %></th>
       <th><%= t('.questions') %></th>
       <th><%= t('.action') %></th>

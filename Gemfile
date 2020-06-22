@@ -35,6 +35,7 @@ gem 'rails-i18n'
 #UI
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.0'
+gem 'octicons_helper'
 
 # STORING TOKENS
 gem 'dotenv-rails'

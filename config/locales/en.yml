@@ -104,6 +104,8 @@ en:
         show: "Show"
         edit: "Edit"
         delete: "Delete"
+      form_inline:
+        submit: "OK"
 
   tests_mailer:
     competed_test:

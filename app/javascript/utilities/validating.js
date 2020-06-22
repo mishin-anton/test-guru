@@ -1,8 +1,10 @@
 document.addEventListener('turbolinks:load', function() {
   var password_confirmation_input = document.getElementById('user_password_confirmation');
 
-  password_confirmation_input.oninput = function() {
-    validate_password();
+  if (password_confirmation_input != null) {
+    password_confirmation_input.oninput = function() {
+      validate_password();
+    }
   }
 })
 

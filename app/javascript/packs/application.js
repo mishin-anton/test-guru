@@ -9,9 +9,12 @@ require("@rails/activestorage").start()
 require("channels")
 require("utilities/sorting")
 require("utilities/validating")
+require("utilities/form_inline")
+require("utilities/test_progress")
+require('jquery')
 
 //=require turbolinks
-//=require jquery3
+//= require jquery
 //=require popper
 //=require bootstrap-sprockets
 //=require_tree .

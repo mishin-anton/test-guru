@@ -78,6 +78,8 @@ ru:
         show: "Показать"
         edit: "Редактировать"
         delete: "Удалить"
+      form_inline:
+        submit: "OK"
     questions:
       new:
         header: "Создать вопрос"

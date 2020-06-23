@@ -1,5 +1,16 @@
 <h1><%= t('.header', title: @user_test.test.title) %> test </h1>
 
+
+<div class="progress">
+  <%= content_tag :div, '',
+                  class: 'progress progress-bar progress-bar-striped bg-success',
+                  id: 'test_progress',
+                  data: { question_number: @user_test.current_question_number,
+                    questions_count: @user_test.test.questions.count }
+   %>
+
+</div>
+
 <p>
   Current question №: <%= @user_test.current_question_number %><br>
   Total questions: <%= @user_test.test.questions.count%>

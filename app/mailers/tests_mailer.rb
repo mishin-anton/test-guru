@@ -3,7 +3,6 @@ class TestsMailer < ApplicationMailer
     @user = user_test.user
     @test = user_test.test
 
-    # mail to: @user.email
-    mail to: 'coal.msk@gmail.com'
+    mail to: @user.email
   end
 end

@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    # params.require(:post).permit(:name, :email, :message)
-    params.fetch(:post, {}).permit(:name, :email, :message)
+    params.require(:post).permit(:name, :email, :message)
+    # params.fetch(:post, {}).permit(:name, :email, :message)
   end
 end

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'posts/index'
   scope "(:lang)", lang: /en|ru/ do
 
     root to: 'tests#index'

@@ -3,4 +3,5 @@ class FormMailer < ApplicationMailer
     @form = params[:form]
     mail(to: ENV['SEND_MAIL_TO'], subject: ENV['SUBJECT_EMAIL'])
   end
+
 end

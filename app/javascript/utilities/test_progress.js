@@ -3,8 +3,8 @@ document.addEventListener('turbolinks:load', function() {
 
   var questionNumber = progressBar.dataset.questionNumber;
   var questionCount = progressBar.dataset.questionsCount;
-
-  var progress = questionNumber / questionCount * 100;
+  var progress = (questionNumber - 1) / questionCount * 100;
 
   progressBar.style.width = progress + "%";
+
 })

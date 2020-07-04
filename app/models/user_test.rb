@@ -21,6 +21,10 @@ class UserTest < ApplicationRecord
     save!
   end
 
+  def comleted?
+    current_question.nil?
+  end
+
   def success?
     calculate_results >= SUCCESS_ANSWER_PERCENT
   end
@@ -47,10 +51,11 @@ class UserTest < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
-
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-    correct_answers_count == answer_ids.count
+    unless answer_ids.nil?
+      correct_answers_count = correct_answers.count
+      (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
+      (correct_answers_count == answer_ids.count)
+    end
   end
 
   def correct_answers
@@ -58,7 +63,7 @@ class UserTest < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.nil? ? 0: current_question.id).first
   end
 
 end

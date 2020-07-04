@@ -3,6 +3,10 @@
     <td><%= test.title %></td>
     <td><%= test_level(test) %></td>
     <td><%= questions_quantity(test) %></td>
-    <td><%= button_to t('.start'), start_test_path(test) %></td>
+    <% if questions_quantity(test) >= 1 %>
+      <td><%= button_to t('.start'), start_test_path(test) %></td>
+    <% else %>
+      <td>нет вопросов</td>
+    <% end %>
   </tr>
 </tbody>

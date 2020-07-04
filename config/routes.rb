@@ -31,6 +31,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :posts, shallow: true
+
   end
 
 end

@@ -14,6 +14,10 @@
   cat1 = Category.create(title: 'Programming')
   cat2 = Category.create(title: 'Test category')
 
+  rule1 = Rule.create(title: 'level_complete')
+  rule2 = Rule.create(title: 'first_attempt_complete')
+  rule3 = Rule.create(title: 'programming_category_complete')
+
   test1 = Test.create(title: 'Ruby', level: 2, category: cat1, author_id: user1.id)
   test2 = Test.create(title: 'HTML', level: 1, category: cat1, author_id: user2.id)
   test3 = Test.create(title: 'Java', level: 3, category: cat1, author_id: user1.id)

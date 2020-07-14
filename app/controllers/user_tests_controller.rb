@@ -15,7 +15,7 @@ class UserTestsController < ApplicationController
   end
 
   def result
-
+    @bage = BageService.new(user_test: @user_test).call if @user_test.success?
   end
 
   def gist

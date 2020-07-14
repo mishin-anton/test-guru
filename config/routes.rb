@@ -22,6 +22,7 @@ Rails.application.routes.draw do
 
     namespace :admin do
       resources :gists, only: :index
+      resources :bages
       resources :tests do
         patch :update_inline, on: :member
 
@@ -32,6 +33,9 @@ Rails.application.routes.draw do
     end
 
     resources :posts, shallow: true
+
+    resources :bages, shallow: true
+    resources :bage_passages, only: :index
 
   end
 

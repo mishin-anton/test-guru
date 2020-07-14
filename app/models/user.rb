@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   has_many :user_tests
   has_many :tests, through: :user_tests
+  has_many :bage_passages
+  has_many :bages, through: :bage_passages
   has_many :gists
   has_many :own_tests, class_name: 'Test', foreign_key: :user_id
 

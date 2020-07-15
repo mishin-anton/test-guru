@@ -8,24 +8,7 @@ class BageService
 
   def call
     Bage.all.each do |bage|
-      if bage.rule.title == 'programming_category_complete'
-        if programming_category_complete(bage)
-          set_bage(bage)
-        end
-      end
-
-      if bage.rule.title == 'first_attempt_complete'
-        if first_attempt_complete(bage)
-          set_bage(bage)
-        end
-      end
-
-      if bage.rule.title == 'level_complete'
-        if level_complete(bage)
-          set_bage(bage)
-        end
-      end
-
+      set_bage(bage) if send("#{bage.rule.title}_award?", bage.rule)
     end
   end
 
@@ -41,21 +24,17 @@ class BageService
     end
   end
 
-  def programming_category_complete(bage)
-    passed_tests_ids = passed_by_category.pluck(:test_id).uniq.sort
-    passed_tests_ids.present?
+  def programming_category_complete_award?(category_id)
+    @user.tests.where("category_id = ?", category_id).uniq.count == Test.where("category_id = ?", category_id).count
 
   end
 
-  def level_complete(bage)
-    passed_tests_ids    = passed_by_level.pluck(:test_id).uniq.sort
-    comparing_tests_ids = Test.where(level: @test.level).pluck(:id).sort
-
-    passed_tests_ids.present? && passed_tests_ids == comparing_tests_ids
+  def level_complete_award?(level)
+    @user.tests.where("level = ?", level).uniq.count == Test.where("level = ?", level).count
   end
 
-  def first_attempt_complete(bage)
-    @user.user_test(@test)
+  def first_attempt_complete_award?(rule)
+    @user.user_tests.where(test_id: @test.id).count == 1
   end
 
   def passed_by_category

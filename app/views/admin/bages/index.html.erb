@@ -1,0 +1,19 @@
+<h1>Bages</h1>
+
+<div>
+  <%= link_to 'Create new bage', new_admin_bage_path %>
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Badge</th>
+      <th scope="col">Name</th>
+      <th scope="col">Rule</th>
+    </tr>
+  </thead>
+
+   <%= render @bages %>
+
+</table>

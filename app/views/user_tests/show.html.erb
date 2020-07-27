@@ -1,6 +1,5 @@
 <h1><%= t('.header', title: @user_test.test.title) %> test </h1>
 
-
 <div class="progress">
   <%= content_tag :div, '',
                   class: 'progress progress-bar progress-bar-striped bg-success',
@@ -10,6 +9,10 @@
    %>
 
 </div>
+
+<p class="timer" id="timer" data-id=<%= @user_test.test.id %>
+    data-duration= <%= @user_test.test.duration %>>
+</p>
 
 <p>
   Current question №: <%= @user_test.current_question_number %><br>
@@ -31,3 +34,4 @@
   <p><%= link_to 'Gist Question', gist_user_test_path(@user_test), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
 <% end %>
+

@@ -16,6 +16,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        duration: Длительность (мин)
       question:
         body: "Вопрос"
       answer:

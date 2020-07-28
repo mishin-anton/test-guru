@@ -1,5 +1,9 @@
 <h1><%= t('.header', title: @user_test.test.title) %> test </h1>
 
+<p class="timer" id="timer" data-id=<%= @user_test.test.id %>
+  data-duration= <%= @user_test.test.duration %>>
+</p>
+
 <div class="progress">
   <%= content_tag :div, '',
                   class: 'progress progress-bar progress-bar-striped bg-success',
@@ -9,10 +13,6 @@
    %>
 
 </div>
-
-<p class="timer" id="timer" data-id=<%= @user_test.test.id %>
-    data-duration= <%= @user_test.test.duration %>>
-</p>
 
 <p>
   Current question №: <%= @user_test.current_question_number %><br>
@@ -35,3 +35,6 @@
   <p><%= form.submit 'Next' %></p>
 <% end %>
 
+<script type="text/javascript">
+  setTimer();
+</script>

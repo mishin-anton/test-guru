@@ -40,6 +40,18 @@ class UserTest < ApplicationRecord
     self.test.questions.ids.index(self.current_question.id)+1
   end
 
+  def time_expired?
+    created_at + test.duration * 60 <= Time.zone.now ? true : false
+  end
+
+  def end_time
+    created_at + test.duration * 60
+  end
+
+  def time_left
+    (end_time - Time.current).to_i
+  end
+
   private
 
   def before_validation_set_first_question

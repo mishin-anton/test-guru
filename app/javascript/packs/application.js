@@ -11,6 +11,7 @@ require("utilities/sorting")
 require("utilities/validating")
 require("utilities/form_inline")
 require("utilities/test_progress")
+require("utilities/test_timer")
 require('jquery')
 
 //=require turbolinks

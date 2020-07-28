@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  scope "(:lang)", lang: /en|ru/ do
-
     root to: 'tests#index'
 
     devise_for :users, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
@@ -36,7 +34,5 @@ Rails.application.routes.draw do
 
     resources :bages, shallow: true
     resources :bage_passages, only: :index
-
-  end
 
 end

@@ -1,4 +1,10 @@
+<%= content_tag :div, '',
+                  class: 'timer',
+                  data: { duration: @user_test.time_left } %>
+
+
 <h1><%= t('.header', title: @user_test.test.title) %> test </h1>
+
 
 
 <div class="progress">
@@ -31,3 +37,4 @@
   <p><%= link_to 'Gist Question', gist_user_test_path(@user_test), method: :post %></p>
   <p><%= form.submit 'Next' %></p>
 <% end %>
+

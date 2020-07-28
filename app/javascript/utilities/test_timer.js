@@ -1,29 +1,21 @@
-function setTimer() {
-  document.addEventListener('turbolinks:load', function() {
-    var timer = document.getElementById('timer');
-    var duration = timer.dataset.duration;
+document.addEventListener('turbolinks:load', function() {
+    var timer = document.querySelector('.timer');
+    if (timer) { countdown(timer) }
+});
 
-    if (duration) {
-      var initialDateTime = new Date().getTime() + duration * 60 * 1000
+function countdown(timer) {
+    var startTime = Date.now();
+    var endTime = startTime + (timer.dataset.duration * 1000);
+    var timeRemain = (endTime - startTime) / 1000;
 
-      var t = setInterval(function() {
-        var dateTimeNow = new Date().getTime();
-        var distance = initialDateTime - dateTimeNow
+    setInterval(function() {
+        document.querySelector('.timer').textContent = timeRemain + ' seconds';
+        timeRemain -= 1;
 
-        var hours   = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000)
-
-        document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s "
-
-        if (distance < 1000) {
-          clearInterval(t);
-          alert('Время истекло.')
-          finishTest()
+        if (timeRemain < 0) {
+          finishTest();
         }
-      }, 1000);
-    }
-  })
+    }, 1000)
 }
 
 function finishTest() {

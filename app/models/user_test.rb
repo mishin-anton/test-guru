@@ -21,10 +21,6 @@ class UserTest < ApplicationRecord
     save!
   end
 
-  def time_expired?
-    created_at + test.duration * 60 <= Time.zone.now ? true : false
-  end
-
   def comleted?
     current_question.nil?
   end
@@ -42,6 +38,18 @@ class UserTest < ApplicationRecord
 
   def current_question_number
     self.test.questions.ids.index(self.current_question.id)+1
+  end
+
+  def time_expired?
+    created_at + test.duration * 60 <= Time.zone.now ? true : false
+  end
+
+  def end_time
+    created_at + test.duration * 60
+  end
+
+  def time_left
+    (end_time - Time.current).to_i
   end
 
   private
